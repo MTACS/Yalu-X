@@ -15,6 +15,14 @@
 #import <pthread.h>
 #undef __IPHONE_OS_VERSION_MIN_REQUIRED
 #import <mach/mach.h>
+#import "devicesupport.h"
+#import <sys/mount.h>
+#import <spawn.h>
+#import <copyfile.h>
+#import <mach-o/dyld.h>
+#import <sys/types.h>
+#import <sys/stat.h>
+#import <sys/utsname.h>
 #include <sys/utsname.h>
 
 extern uint64_t procoff;
@@ -36,6 +44,12 @@ typedef struct {
 
 @implementation ViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+
+    return UIStatusBarStyleLightContent;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     init_offsets();
@@ -43,12 +57,12 @@ typedef struct {
     uname(&u);
     
 
-    if (strstr(u.version, "MarijuanARM")) {
+    /*if (strstr(u.version, "MarijuanARM")) {
         [dope setEnabled:NO];
         [dope setTitle:@"already jailbroken" forState:UIControlStateDisabled];
     
     
-    }
+    }*/
     
     UIViewController * contributeViewController = [[UIViewController alloc] init];
     
@@ -70,7 +84,6 @@ typedef struct {
 
 
 typedef natural_t not_natural_t;
-
 struct not_essers_ipc_object {
     not_natural_t io_bits;
     not_natural_t io_references;
@@ -78,9 +91,23 @@ struct not_essers_ipc_object {
     
 };
 
+- (IBAction)rebootButton:(UIButton *)sender {
+
+    
+    // Fuck how do I implement this?
+    
+    /* rebootqueue(1.0, ^
+                {
+                    system("reboot");
+                });
+ 
+     */
+    
+}
+
 - (IBAction)deviceButton:(UIButton *)sender {
 
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Current Support" message:@"iPhone 5s: iOS 10.0 - 10.2\n iPhone 6(+): iOS 10.0 - 10.2\n iPhone 6s(+): iOS 10.0 - 10.2\n iPhone 7(+): Not supported by Yalu 10.2, please use yalu+mach_portal." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Current Support" message:@"iPad Pro: iOS 10.0 - 10.2\n iPad Air: iOS 10.0 - 10.2\n iPad Air 2: iOS 10.0 - 10.2\n iPad Mini 2: iOS 10.0 - 10.2\n iPad Mini 3: iOS 10.0 - 10.2\n iPad Mini 4: iOS 10.0 - 10.2\n iPod Touch 6G: iOS 10.0 - 10.2\n iPhone 5s: iOS 10.0 - 10.2\n iPhone 6(+): iOS 10.0 - 10.2\n iPhone 6s(+): iOS 10.0 - 10.2\n iPhone 7(+): Not supported by Yalu 10.2, please use yalu+mach_portal." preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Got it!" style:UIAlertActionStyleDefault handler:nil];
     [alertController addAction:ok];
@@ -88,13 +115,18 @@ struct not_essers_ipc_object {
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (IBAction)reinstallSlider:(UISlider *)sender {
+- (IBAction)reinstallSwitch:(UISwitch *)sender {
 
-    if (sender.value == 5) {
+
+    if (sender.isOn) {
        
         NSString *filePath = @"/Applications/Cydia.app";
         
-        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSString *yalu = @"/.installed_yaluX";
+        
+        BOOL installed = [[NSFileManager defaultManager] fileExistsAtPath:yalu];
+        
+        /*if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Uh Oh!" message:@"It looks like Cydia is already installed. Try running uicache in terminal or SSH, or enter cydia:// in Safari search bar." preferredStyle:UIAlertControllerStyleAlert];
             
@@ -103,13 +135,75 @@ struct not_essers_ipc_object {
             
             [self presentViewController:alertController animated:YES completion:nil];
             
-            } else {
+        } */
         
-                /*Not implemented yet...I don't know everything...*/
-                
+        if (installed == YES) {
+        
+            UIAlertController * alert = [UIAlertController
+                                         alertControllerWithTitle:@"Uh Oh!"
+                                         message:@"The file '/.installed_yaluX' exists. This means you are still jailbroken. Is Cydia on your homescreen?"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* yesButton = [UIAlertAction
+                                        actionWithTitle:@"Yes"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action) {
+                                            
+                                           //Execute conformation code here
+                                            
+                                           UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Ok" message:@"It looks like you're all set!" preferredStyle:UIAlertControllerStyleAlert];
+                                            
+                                            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Thanks!" style:UIAlertActionStyleDefault handler:nil];
+                                            [alertController addAction:ok];
+                                            
+                                            [self presentViewController:alertController animated:YES completion:nil];
+                                            
+                                        }];
+            
+            UIAlertAction* noButton = [UIAlertAction
+                                       actionWithTitle:@"No"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           
+                                           UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Still need help?" message:@"Try running the command 'uicache' via SSH. If this doesn't work, visit 'https://github.com/MTAC-Research/Yalu-X/blob/master/README.md' for a fix" preferredStyle:UIAlertControllerStyleAlert];
+                                           
+                                           UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                                           [alertController addAction:ok];
+                                           
+                                           [self presentViewController:alertController animated:YES completion:nil];
+                                           
+                                       }];
+            
+            [alert addAction:yesButton];
+            [alert addAction:noButton];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            [sender setOn:false];
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Uh Oh!" message:@"/.installed_yaluX exists in the root directory. This means you're still jailbroken!" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
         }
         
-        sender.value = 0;
+        [sender setOn:false];
         
     }
 }
@@ -118,12 +212,40 @@ struct not_essers_ipc_object {
 
     if (sender.isOn) {
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Fixed!" message:@"DropBear .plist has been fixed, may take a reboot to work." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"Fix DropBear SSH?"
+                                     message:@"This modifies your jailbreak. If anything goes wrong, the responsibilty is yours. Continue?"
+                                     preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"Yes"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        
+                                        //Execute conformation code here
+                                        
+                                        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Fixed!" message:@"DropBear .plist has been fixed, may take a reboot to work." preferredStyle:UIAlertControllerStyleAlert];
+                                        
+                                        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                                        [alertController addAction:ok];
+                                        
+                                        [self presentViewController:alertController animated:YES completion:nil];
+
+                                    }];
         
-        [self presentViewController:alertController animated:YES completion:nil];
+        UIAlertAction* noButton = [UIAlertAction
+                                   actionWithTitle:@"No"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       //Handle no, thanks button
+                                   }];
+        
+        [alert addAction:yesButton];
+        [alert addAction:noButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        [sender setOn:false];
     
     }
 
@@ -140,8 +262,6 @@ char dt[128];
 - (IBAction)jbslider:(UISlider *)sender {
 
     if (sender.value == 5) {
-    
-    
         
     mach_port_t vch = 0;
     
@@ -391,9 +511,7 @@ gotclock:;
     
     void exploit(void*, mach_port_t, uint64_t, uint64_t);
     exploit(sender, pt, kernel_base, allproc_offset);
-    [dope setEnabled:NO];
-    [dope setTitle:@"already jailbroken" forState:UIControlStateDisabled];
-
+    
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Jailbreak complete. Please wait for a respring..." preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
