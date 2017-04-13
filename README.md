@@ -38,4 +38,10 @@ For this specific fork of Yalu, download or use git clone, or use the .ipa file 
 
 I decided to add the fix here instead of on the device as if anything went wrong, I wouldn't want to be responible for any loss of a jailbreak.
 
+**Steps to fix**
 
+1. Connect to your device via SSH as root. For me on my MacBook, I use iPhoneTunnel, but any root SSH tunnel will work. You can also use something like iFunBox if you have installed Apple File Conduit 2. This can also be done through Filza if you do not have a computer. 
+
+2. Browse to the / directory, and delete the /.installed_yaluX file. Over SSH it would be "cd / && rm .installed_yaluX" without quotes.
+
+3. Visit http://apt.saurik.com/debs/cydia_1.1.30_iphoneos-arm.deb and download it. Place it in a directory you can remember, then run dpkg -i /path/to/cydia 1.1.30.deb as root. This will reinstall Cydia to your homescreen. If it doesn't appear, try running uicache as root over SSH. 
