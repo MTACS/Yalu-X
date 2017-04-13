@@ -33,3 +33,9 @@ This jailbreak is a work in progress. Some things do not work, but most things d
 For this specific fork of Yalu, download or use git clone, or use the .ipa file below with [Cydia Impactor](http://www.cydiaimpactor.com/)
 
 [IPA](https://github.com/MTAC-Research/Yalu-X/raw/master/IPA/Yalu%20X.ipa)
+
+## Fix for deleted Cydia, but /.installed_yaluX exists
+
+I decided to add the fix here instead of on the device as if anything went wrong, I wouldn't want to be responible for any loss of a jailbreak.
+
+
