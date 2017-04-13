@@ -141,6 +141,8 @@ char dt[128];
 
     if (sender.value == 5) {
     
+    
+        
     mach_port_t vch = 0;
     
     mach_voucher_attr_recipe_data_t *data = malloc(sizeof(mach_voucher_attr_recipe_data_t) + 0x10);
@@ -392,7 +394,12 @@ gotclock:;
     [dope setEnabled:NO];
     [dope setTitle:@"already jailbroken" forState:UIControlStateDisabled];
 
-    
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Jailbreak complete. Please wait for a respring..." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     
     }
     
