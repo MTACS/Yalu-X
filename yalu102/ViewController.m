@@ -126,18 +126,9 @@ struct not_essers_ipc_object {
         
         BOOL installed = [[NSFileManager defaultManager] fileExistsAtPath:yalu];
         
-        /*if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Uh Oh!" message:@"It looks like Cydia is already installed. Try running uicache in terminal or SSH, or enter cydia:// in Safari search bar." preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:ok];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-            
-        } */
+        BOOL cydiaExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
         
-        if (installed == YES) {
+        if ((installed & cydiaExists) == YES) {
         
             UIAlertController * alert = [UIAlertController
                                          alertControllerWithTitle:@"Uh Oh!"
