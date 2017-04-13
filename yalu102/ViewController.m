@@ -5,7 +5,7 @@
 //  Created by qwertyoruiop on 05/01/2017.
 //  Copyright © 2017 kimjongcracks. All rights reserved.
 //
-//  Other code including the following: Reinstallation function and dropbear fix by MTAC, all other credit ^^
+//  Other code including the following: Reinstallation function and dropbear fix by MTAC, all other credit to kimjongcracks
 //
 
 #import "offsets.h"
