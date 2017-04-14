@@ -345,7 +345,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/yalu102",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtac.yalu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtac.yalu1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 			};
@@ -364,7 +364,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/yalu102",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtac.yalu;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtac.yalu1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
 			};

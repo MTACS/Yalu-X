@@ -40,6 +40,8 @@ typedef struct {
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UIProgressView *progressView;
+
 @end
 
 @implementation ViewController
@@ -64,6 +66,14 @@ typedef struct {
     
     }*/
     
+    self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    
+    self.progressView.center = self.view.center;
+    
+    [self.view addSubview:self.progressView];
+    
+    
+    
     UIViewController * contributeViewController = [[UIViewController alloc] init];
     
     UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -82,6 +92,29 @@ typedef struct {
     
 }
 
+- (IBAction)githubButton:(UIButton *)sender {
+
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:@"https://github.com/MTAC-Research/Yalu-X"];
+    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        if (success) {
+            NSLog(@"Done");
+        }
+    }];
+}
+
+- (IBAction)twitterButton:(UIButton *)sender {
+
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:@"https://twitter.com/mtac8"];
+    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        if (success) {
+            NSLog(@"Done");
+        }
+    }];
+
+
+}
 
 typedef natural_t not_natural_t;
 struct not_essers_ipc_object {
@@ -199,6 +232,7 @@ struct not_essers_ipc_object {
     }
 }
 
+
 - (IBAction)dropBear:(UISwitch *)sender {
 
     if (sender.isOn) {
@@ -250,10 +284,10 @@ struct not_essers_ipc_object {
 
 char dt[128];
 
-- (IBAction)jbslider:(UISlider *)sender {
+- (IBAction)jailbreakButton:(UIButton *)sender {
 
-    if (sender.value == 5) {
-        
+    _progressView.progress = 0.0f;
+    
     mach_port_t vch = 0;
     
     mach_voucher_attr_recipe_data_t *data = malloc(sizeof(mach_voucher_attr_recipe_data_t) + 0x10);
@@ -292,6 +326,9 @@ char dt[128];
         mach_port_allocate(mach_task_self(), MACH_PORT_RIGHT_RECEIVE, &ports[i]);
         mach_port_insert_right(mach_task_self(), ports[i], ports[i], MACH_MSG_TYPE_MAKE_SEND);
     }
+    
+    _progressView.progress = 0.5f;
+    
     sprz msg1;
     
     memset(&msg1, 0, sizeof(sprz));
@@ -315,6 +352,8 @@ char dt[128];
         msg1.desc[i].type = MACH_MSG_OOL_PORTS_DESCRIPTOR;
         msg1.desc[i].disposition = 19;
     }
+    
+    _progressView.progress = 1.0f;
     
     pthread_yield_np();
     for (int i=1; i<300; i++) {
@@ -382,7 +421,7 @@ char dt[128];
             ports[i] = 0;
         }
     }
-    [sender setTitle:@"failed, retry" forState:UIControlStateNormal];
+    [sender setTitle:@"Jailbreak" forState:UIControlStateNormal];
     return;
     
 foundp:
@@ -402,7 +441,7 @@ foundp:
             }
         }
     }
-    [sender setTitle:@"failed, retry" forState:UIControlStateNormal];
+    [sender setTitle:@"Jailbreak" forState:UIControlStateNormal];
     return;
     
 gotclock:;
@@ -458,7 +497,6 @@ gotclock:;
         proc_ = proc;
     }
     
-    
     uint64_t kern_task = 0;
     *(uint64_t*) (faketask + procoff) = kernproc - 0x10 + 0x18;
     pid_for_task(foundport, (int32_t*)&kern_task);
@@ -503,14 +541,16 @@ gotclock:;
     void exploit(void*, mach_port_t, uint64_t, uint64_t);
     exploit(sender, pt, kernel_base, allproc_offset);
     
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Jailbreak complete. Please wait for a respring..." preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Success!" message:@"Jailbreak complete. Please wait for a respring..." preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         
         [self presentViewController:alertController animated:YES completion:nil];
     
-    }
     
 }
 
