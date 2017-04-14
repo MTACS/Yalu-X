@@ -1,7 +1,7 @@
 # Yalu X (Modified yalu102)
 
 <p align="center">
-  <img src="https://github.com/waldyr/Sublime-Installer/blob/master/sublime_text.png?raw=true" alt="Screenshot"/>
+  <img src="https://github.com/MTAC-Research/Yalu-X/blob/master/Images/Screenshot.PNG" alt="Screenshot"/>
 </p>
 
 A "work in progress" iOS jailbreak for 64-bit devices created by [qwertyoruiopz](https://twitter.com/qwertyoruiopz) and [marcograssi](marcograss).
