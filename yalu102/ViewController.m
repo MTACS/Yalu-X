@@ -24,6 +24,10 @@
 #import <sys/stat.h>
 #import <sys/utsname.h>
 #include <sys/utsname.h>
+#include <sys/types.h>
+#include <sys/sysctl.h>
+#include <spawn.h>
+
 
 extern uint64_t procoff;
 
@@ -66,6 +70,27 @@ typedef struct {
     
     }*/
     
+    NSString *hardware = [self hardwareString];
+    
+    if ([hardware isEqualToString:@"iPhone8,4"]) {
+        
+        
+        
+    }
+    
+    if ([hardware isEqualToString:@"iPhone6,1"]) {
+        
+        
+        
+    }
+
+    if ([hardware isEqualToString:@"iPhone6,2"]) {
+        
+        
+        
+    }
+
+
     self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     
     self.progressView.center = self.view.center;
@@ -90,7 +115,51 @@ typedef struct {
     
     contributeViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
+    #define kAppHasRunBeforeKey @"appFirstTimeRun"
+    if (![[[NSUserDefaults standardUserDefaults] valueForKey:kAppHasRunBeforeKey] boolValue]) {
+       
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Hello!" message:@"This version of Yalu X was written by MTAC (@MTAC8) on top of Luca Todesco (@qwertyoruiopz) & Marco Grassi (@marcograss) jailbreak for iOS 10. All modifications in this version are done by MTAC. Please do not claim it as your own." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"Got it!" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kAppHasRunBeforeKey];
+    }
+    
 }
+
+- (NSString*)hardwareDescription {
+    NSString *hardware = [self hardwareString];
+  
+    if ([hardware isEqualToString:@"iPhone9,1"]) return @"iPhone 7";
+    if ([hardware isEqualToString:@"iPhone9,2"]) return @"iPhone 7+";
+    if ([hardware isEqualToString:@"iPhone9,3"]) return @"iPhone 7";
+    if ([hardware isEqualToString:@"iPhone9,4"]) return @"iPhone 7+";
+    
+    return nil;
+}
+
+- (IBAction)cache:(UIButton *)sender {
+
+    system("uicache");
+
+}
+
+- (NSString*)hardwareString {
+    size_t size = 100;
+    char *hw_machine = malloc(size);
+    int name[] = {CTL_HW,HW_MACHINE};
+    sysctl(name, 2, hw_machine, &size, NULL, 0);
+    NSString *hardware = [NSString stringWithUTF8String:hw_machine];
+    free(hw_machine);
+    return hardware;
+}
+
+
 
 - (IBAction)githubButton:(UIButton *)sender {
 
@@ -276,7 +345,6 @@ struct not_essers_ipc_object {
 
 }
 
-
 #define IO_BITS_ACTIVE 0x80000000
 #define	IKOT_TASK 2
 #define IKOT_IOKIT_CONNECT 29
@@ -286,6 +354,17 @@ char dt[128];
 
 - (IBAction)jailbreakButton:(UIButton *)sender {
 
+    // ---Beginning of device detection---
+  
+    NSString *hardware = [self hardwareString];
+        
+    if ([hardware isEqualToString:@"iPhone9,1"]) {
+        
+        // Going to put mach_portal in here somewhere if possible.
+        
+    }
+    
+    
     _progressView.progress = 0.0f;
     
     mach_port_t vch = 0;
@@ -550,7 +629,6 @@ gotclock:;
         [alertController addAction:ok];
         
         [self presentViewController:alertController animated:YES completion:nil];
-    
     
 }
 

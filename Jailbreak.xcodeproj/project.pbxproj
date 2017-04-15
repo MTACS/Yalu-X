@@ -89,6 +89,7 @@
 		EA9900E51E1E9F060056FEBD /* Jailbreak */ = {
 			isa = PBXGroup;
 			children = (
+				EA1A3BC41E39D1FF009CA025 /* Assets.xcassets */,
 				EAA7F7C61E3EE4AF00BE3C64 /* dropbear.plist */,
 				EA1A3B9B1E38BBDB009CA025 /* patchfinder64.h */,
 				EA9901021E219C210056FEBD /* offsets.c */,
@@ -109,7 +110,6 @@
 				EA9901131E21A1B00056FEBD /* iokitmig64.o */,
 				EA1A3B9C1E391C4F009CA025 /* patchfinder64.o */,
 				EA99010F1E21A1A00056FEBD /* pte_stuff.h */,
-				EA1A3BC41E39D1FF009CA025 /* Assets.xcassets */,
 				EA9901181E21A2180056FEBD /* IOKit.tbd */,
 				EA9901151E21A1D90056FEBD /* devicesupport.h */,
 				EA9901161E21A1D90056FEBD /* devicesupport.m */,
