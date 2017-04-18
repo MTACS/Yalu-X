@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172936261EA63C03004FE4FD /* iPhone-small.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172936251EA63C03004FE4FD /* iPhone-small.storyboard */; };
+		172936281EA63C1A004FE4FD /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172936271EA63C1A004FE4FD /* iPad.storyboard */; };
+		1729362A1EA656DF004FE4FD /* iPhone-large.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172936291EA656DF004FE4FD /* iPhone-large.storyboard */; };
 		EA1A3B9D1E391C4F009CA025 /* patchfinder64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1A3B9C1E391C4F009CA025 /* patchfinder64.o */; };
 		EA1A3BA81E398E33009CA025 /* 0.reload.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA1A3BA61E398E33009CA025 /* 0.reload.plist */; };
 		EA1A3BAD1E399006009CA025 /* reload in Resources */ = {isa = PBXBuildFile; fileRef = EA1A3BAC1E399006009CA025 /* reload */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		172936251EA63C03004FE4FD /* iPhone-small.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "iPhone-small.storyboard"; sourceTree = "<group>"; };
+		172936271EA63C1A004FE4FD /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		172936291EA656DF004FE4FD /* iPhone-large.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "iPhone-large.storyboard"; sourceTree = "<group>"; };
 		EA1A3B9B1E38BBDB009CA025 /* patchfinder64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
 		EA1A3B9C1E391C4F009CA025 /* patchfinder64.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = patchfinder64.o; sourceTree = "<group>"; };
 		EA1A3BA61E398E33009CA025 /* 0.reload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0.reload.plist; sourceTree = "<group>"; };
@@ -102,6 +108,9 @@
 				EA9900EC1E1E9F060056FEBD /* ViewController.h */,
 				EA9900ED1E1E9F060056FEBD /* ViewController.m */,
 				EA9900EF1E1E9F060056FEBD /* Main.storyboard */,
+				172936251EA63C03004FE4FD /* iPhone-small.storyboard */,
+				172936291EA656DF004FE4FD /* iPhone-large.storyboard */,
+				172936271EA63C1A004FE4FD /* iPad.storyboard */,
 				EA9900F41E1E9F060056FEBD /* LaunchScreen.storyboard */,
 				EA9900F71E1E9F060056FEBD /* Info.plist */,
 				EA9901051E219FF10056FEBD /* bootstrap.tar */,
@@ -187,9 +196,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA99010A1E21A04C0056FEBD /* tar in Resources */,
+				1729362A1EA656DF004FE4FD /* iPhone-large.storyboard in Resources */,
+				172936261EA63C03004FE4FD /* iPhone-small.storyboard in Resources */,
 				EA99010C1E21A0520056FEBD /* launchctl in Resources */,
 				EA9901061E219FF10056FEBD /* bootstrap.tar in Resources */,
 				EA1A3BA81E398E33009CA025 /* 0.reload.plist in Resources */,
+				172936281EA63C1A004FE4FD /* iPad.storyboard in Resources */,
 				EAA7F7C71E3EE4AF00BE3C64 /* dropbear.plist in Resources */,
 				EA9900F61E1E9F060056FEBD /* LaunchScreen.storyboard in Resources */,
 				EA1A3BAD1E399006009CA025 /* reload in Resources */,
@@ -338,6 +350,7 @@
 				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = T6B573WB6C;
 				INFOPLIST_FILE = yalu102/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -347,6 +360,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mtac.yalu1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VALID_ARCHS = armv7;
 			};
 			name = Debug;
@@ -357,6 +371,7 @@
 				ARCHS = armv7;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = T6B573WB6C;
 				INFOPLIST_FILE = yalu102/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -366,6 +381,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mtac.yalu1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VALID_ARCHS = armv7;
 			};
 			name = Release;

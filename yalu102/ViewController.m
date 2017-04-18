@@ -62,42 +62,11 @@ typedef struct {
     struct utsname u = { 0 };
     uname(&u);
     
-
-    /*if (strstr(u.version, "MarijuanARM")) {
-        [dope setEnabled:NO];
-        [dope setTitle:@"already jailbroken" forState:UIControlStateDisabled];
-    
-    
-    }*/
-    
-    NSString *hardware = [self hardwareString];
-    
-    if ([hardware isEqualToString:@"iPhone8,4"]) {
-        
-        
-        
-    }
-    
-    if ([hardware isEqualToString:@"iPhone6,1"]) {
-        
-        
-        
-    }
-
-    if ([hardware isEqualToString:@"iPhone6,2"]) {
-        
-        
-        
-    }
-
-
     self.progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
     
     self.progressView.center = self.view.center;
     
     [self.view addSubview:self.progressView];
-    
-    
     
     UIViewController * contributeViewController = [[UIViewController alloc] init];
     
@@ -631,8 +600,6 @@ gotclock:;
         [self presentViewController:alertController animated:YES completion:nil];
     
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

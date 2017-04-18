@@ -16,8 +16,49 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    UIStoryboard *storyboard = [self grabStoryboard];
+    
+    self.window.rootViewController = [storyboard instantiateInitialViewController];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (UIStoryboard *) grabStoryboard {
+
+    int screenHeight = [UIScreen mainScreen].bounds.size.height;
+    UIStoryboard *storyboard;
+    
+    switch (screenHeight) {
+        case 736:
+            storyboard = [UIStoryboard storyboardWithName:@"iPhone-large" bundle:nil];
+            
+            break;
+            
+        case 667:
+            storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            
+            break;
+            
+        case 568:
+            storyboard = [UIStoryboard storyboardWithName:@"iPhone-small" bundle:nil];
+            
+            break;
+            
+        case 1024:
+            storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+            
+        default:
+            
+            storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            
+            break;
+    }
+    
+    return storyboard;
+
 }
 
 
