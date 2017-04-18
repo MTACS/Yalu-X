@@ -36,7 +36,7 @@ For this specific fork of Yalu, download or use git clone, or use the .ipa file 
 
 [IPA Latest(Beta 6)](https://github.com/MTAC-Research/Yalu-X/raw/master/IPA/Yalu%20X%20Beta%206.ipa)
 
-[IPA Stable(Beta )](https://github.com/MTAC-Research/Yalu-X/raw/master/IPA/Yalu%20X%20Beta%204.ipa)
+[IPA Stable(Beta 4)](https://github.com/MTAC-Research/Yalu-X/raw/master/IPA/Yalu%20X%20Beta%204.ipa)
 
 ## Fix for deleted Cydia, but /.installed_yaluX exists
 
