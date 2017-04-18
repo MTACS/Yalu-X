@@ -38,6 +38,8 @@ For this specific fork of Yalu, download or use git clone, or use the .ipa file 
 
 [IPA Stable(Beta 4)](https://github.com/MTAC-Research/Yalu-X/raw/master/IPA/Yalu%20X%20Beta%204.ipa)
 
+For manual installation: Download or use git clone. Open the .xcodeproj file and add your own bundle identifier and select your build team. Make sure your device is connected and chosen as the destination, then click run.
+
 ## Fix for deleted Cydia, but /.installed_yaluX exists
 
 I decided to add the fix here instead of on the device as if anything went wrong, I wouldn't want to be responible for any loss of a jailbreak.
