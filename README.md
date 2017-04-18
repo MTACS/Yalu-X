@@ -12,16 +12,16 @@ A "work in progress" iOS jailbreak for 64-bit devices created by [qwertyoruiopz]
 
 | Device | Version |
 |---------|----------|
-| iPad Pro  | iOS 10.0.0 -> iOS 10.2 |
-| iPhone 6S  | iOS 10.0.0 -> iOS 10.2 |
-| iPhone SE  | iOS 10.0.0 -> iOS 10.2 |
 | iPhone 5S  | iOS 10.0.0 -> iOS 10.2 |
+| iPhone SE  | iOS 10.0.0 -> iOS 10.2 |
+| iPhone 6(+)  | iOS 10.0.0 -> iOS 10.2 |
+| iPhone 6S(+)  | iOS 10.0.0 -> iOS 10.2 |
 | iPad Air| iOS 10.0.0 -> iOS 10.2 |
-| iPad Mini 2| iOS 10.0.0 -> iOS 10.2 |
-| iPhone 6  | iOS 10.0.0 -> iOS 10.2 |
-| iPad Mini 3| iOS 10.0.0 -> iOS 10.2 |
 | iPad Air 2| iOS 10.0.0 -> iOS 10.2 |
+| iPad Mini 2| iOS 10.0.0 -> iOS 10.2 |
+| iPad Mini 3| iOS 10.0.0 -> iOS 10.2 |
 | iPad Mini 4 | iOS 10.0.0 -> iOS 10.2 |
+| iPad Pro  | iOS 10.0.0 -> iOS 10.2 |
 | iPod touch (6G)  | iOS 10.0.0 -> iOS 10.2 |
 
 ## Warnings
