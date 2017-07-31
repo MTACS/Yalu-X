@@ -10,3 +10,4 @@
 
 extern NSInteger ssh;
 extern NSInteger substrate;
+extern NSInteger cydia;

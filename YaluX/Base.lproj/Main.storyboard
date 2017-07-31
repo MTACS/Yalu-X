@@ -97,6 +97,7 @@
                                     <constraint firstAttribute="height" constant="31" id="WCs-rv-Oh0"/>
                                 </constraints>
                                 <connections>
+                                    <action selector="cydiaSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="ziC-65-LMF"/>
                                     <action selector="reinstallSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="snp-lh-tsP"/>
                                 </connections>
                             </switch>

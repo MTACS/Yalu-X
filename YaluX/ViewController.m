@@ -32,6 +32,7 @@ typedef struct {
 
 NSInteger ssh;
 NSInteger substrate;
+NSInteger cydia;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,8 +59,16 @@ struct not_essers_ipc_object {
 - (IBAction)substrateSwitch:(id)sender {
 }
 
-- (IBAction)reinstallSwitch:(id)sender {
+- (IBAction)cydiaSwitch:(UISwitch *)sender {
+    
+    if (sender.isOn) {
+        
+        cydia = 1;
+        
+    }
+    
 }
+
 
 - (IBAction)SSHSwitch:(UISwitch *)sender {
     
@@ -342,11 +351,7 @@ gotclock:;
     
     UIApplication *application = [UIApplication sharedApplication];
     NSURL *URL = [NSURL URLWithString:@"https://twitter.com/qwertyoruiopz"];
-    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
-        if (success) {
-            NSLog(@"Done");
-        }
-    }];
+    [application openURL:URL options:@{} completionHandler:nil];
     
     
     
