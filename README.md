@@ -26,6 +26,6 @@ A "work in progress" iOS jailbreak for 64-bit devices created by [qwertyoruiopz]
 
 ## Warnings
 
-This jailbreak is a work in progress. Some things do not work, but most things do. iPhone 7 does not work with this specific fork of yalu102.
+This jailbreak is a work in progress. iPhone 7 does not work with this specific fork of yalu102.
 
 **As mentioned in the original fork, this is still a beta. Use at your own risk**
