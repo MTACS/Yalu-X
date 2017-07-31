@@ -1,7 +1,7 @@
 # Yalu X (Modified yalu102)
 
 <p align="center">
-  <img src="https://github.com/MTAC-Research/Yalu-X/blob/master/Images/Screenshot 2.png" alt="Screenshot"/>
+  <img src="/Screenshot.png" alt="Screenshot"/>
 </p>
 
 A "work in progress" iOS jailbreak for 64-bit devices created by [qwertyoruiopz](https://twitter.com/qwertyoruiopz) and [marcograssi](marcograss).
@@ -29,25 +29,3 @@ A "work in progress" iOS jailbreak for 64-bit devices created by [qwertyoruiopz]
 This jailbreak is a work in progress. Some things do not work, but most things do. iPhone 7 does not work with this specific fork of yalu102.
 
 **As mentioned in the original fork, this is still a beta. Use at your own risk**
-
-## Installation
-
-For this specific fork of Yalu, download or use git clone, or use the .ipa file below with [Cydia Impactor](http://www.cydiaimpactor.com/)
-
-[IPA Latest(Beta 6)](https://github.com/MTAC-Research/Yalu-X/raw/master/IPA/Yalu%20X%20Beta%206.ipa)
-
-[IPA Stable(Beta 4)](https://github.com/MTAC-Research/Yalu-X/raw/master/IPA/Yalu%20X%20Beta%204.ipa)
-
-For manual installation: Download or use git clone. Open the .xcodeproj file and add your own bundle identifier and select your build team. Make sure your device is connected and chosen as the destination, then click run.
-
-## Fix for deleted Cydia, but /.installed_yaluX exists
-
-I decided to add the fix here instead of on the device as if anything went wrong, I wouldn't want to be responible for any loss of a jailbreak.
-
-**Steps to fix**
-
-1. Connect to your device via SSH as root. For me on my MacBook, I use iPhoneTunnel, but any root SSH tunnel will work. You can also use something like iFunBox if you have installed Apple File Conduit 2. This can also be done through Filza if you do not have a computer. 
-
-2. Browse to the / directory, and delete the /.installed_yaluX file. Over SSH it would be "cd / && rm .installed_yaluX" without quotes.
-
-3. Visit http://apt.saurik.com/debs/cydia_1.1.30_iphoneos-arm.deb and download it. Place it in a directory you can remember, then run dpkg -i /path/to/cydia 1.1.30.deb as root. This will reinstall Cydia to your homescreen. If it doesn't appear, try running uicache as root over SSH. 
