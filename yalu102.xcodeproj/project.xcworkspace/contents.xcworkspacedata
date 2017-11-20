@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/DAF/Documents/YaluX/yalu102/dropbear22.plist">
+   </FileRef>
+   <FileRef
       location = "self:yalu102.xcodeproj">
    </FileRef>
 </Workspace>

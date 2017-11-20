@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1749177C1FC3536900AD5AE1 /* dropbear22.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1749177B1FC3536900AD5AE1 /* dropbear22.plist */; };
 		EA1A3B9D1E391C4F009CA025 /* patchfinder64.o in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1A3B9C1E391C4F009CA025 /* patchfinder64.o */; };
 		EA1A3BA81E398E33009CA025 /* 0.reload.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA1A3BA61E398E33009CA025 /* 0.reload.plist */; };
 		EA1A3BAD1E399006009CA025 /* reload in Resources */ = {isa = PBXBuildFile; fileRef = EA1A3BAC1E399006009CA025 /* reload */; };
@@ -29,8 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17456AD71FC35C3900E79C82 /* dropbear22.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = dropbear22.plist; path = /Users/DAF/Documents/YaluX/yalu102/dropbear22.plist; sourceTree = "<absolute>"; };
 		174917781FC34A5C00AD5AE1 /* extern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = extern.h; sourceTree = "<group>"; };
-		1749177B1FC3536900AD5AE1 /* dropbear22.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dropbear22.plist; path = ../../dropbear22.plist; sourceTree = "<group>"; };
 		EA1A3B9B1E38BBDB009CA025 /* patchfinder64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfinder64.h; sourceTree = "<group>"; };
 		EA1A3B9C1E391C4F009CA025 /* patchfinder64.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = patchfinder64.o; sourceTree = "<group>"; };
 		EA1A3BA61E398E33009CA025 /* 0.reload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 0.reload.plist; sourceTree = "<group>"; };
@@ -92,8 +91,8 @@
 		EA9900E51E1E9F060056FEBD /* yalu102 */ = {
 			isa = PBXGroup;
 			children = (
+				17456AD71FC35C3900E79C82 /* dropbear22.plist */,
 				EAA7F7C61E3EE4AF00BE3C64 /* dropbear.plist */,
-				1749177B1FC3536900AD5AE1 /* dropbear22.plist */,
 				EA1A3B9B1E38BBDB009CA025 /* patchfinder64.h */,
 				EA9901021E219C210056FEBD /* offsets.c */,
 				EA9901031E219C210056FEBD /* offsets.h */,
@@ -197,7 +196,6 @@
 				EAA7F7C71E3EE4AF00BE3C64 /* dropbear.plist in Resources */,
 				EA9900F61E1E9F060056FEBD /* LaunchScreen.storyboard in Resources */,
 				EA1A3BAD1E399006009CA025 /* reload in Resources */,
-				1749177C1FC3536900AD5AE1 /* dropbear22.plist in Resources */,
 				EA1A3BC51E39D1FF009CA025 /* Assets.xcassets in Resources */,
 				EA9900F11E1E9F060056FEBD /* Main.storyboard in Resources */,
 			);
